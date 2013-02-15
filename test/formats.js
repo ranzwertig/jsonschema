@@ -21,6 +21,17 @@ describe('Formats', function () {
     });
 
   });
+  
+  describe('date-timeZ', function () {
+    it('should validate a valid date-timeZ', function () {
+      this.validator.validate("2012-07-08T16:41:41.532+01:00", {'type': 'string', 'format': 'date-timeZ'}).valid.should.be.true;
+    });
+
+    it('should not validate an invalid date-timeZ', function () {
+      this.validator.validate("TEST2012-07-08T16:41:41.532+01:00", {'type': 'string', 'format': 'date-time'}).valid.should.be.false;
+    });
+
+  });
 
   describe('date', function () {
     it('should validate a valid date', function () {
